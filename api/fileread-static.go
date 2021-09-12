@@ -14,7 +14,7 @@ func FileReadSt_Handler(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Error in mkdir " + FDErr.Error()))
 	}
 
-	FB, FErr := os.ReadFile("files/file1.txt")
+	FB, FErr := os.ReadFile("file1.txt")
 
 	if FErr != nil {
 		w.Write([]byte("Error in reading file" + FErr.Error()))
