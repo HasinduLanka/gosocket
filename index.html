@@ -35,7 +35,7 @@
         };
 
 
-      const source = new EventSource(document.location.origin+"/sse");
+      const source = new EventSource(document.location.origin+"/api/sse");
       source.onmessage = (event) => {
         console.log("SSE OnMessage : ");
         console.log(event);
