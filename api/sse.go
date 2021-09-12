@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"math/rand"
 	"net/http"
 	"time"
 )
@@ -44,12 +45,10 @@ func DashboardHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func updateDashboard(client *Client) {
-	i := 1
 	for {
 		db := &DashBoard{
-			User: uint(i),
+			User: uint(rand.Uint32()),
 		}
-		i++
 		client.events <- db
 	}
 }
