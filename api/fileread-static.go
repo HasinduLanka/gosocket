@@ -7,6 +7,7 @@ import (
 
 func FileReadSt_Handler(w http.ResponseWriter, r *http.Request) {
 
+	os.MkdirAll("files", 0777)
 	FB, FErr := os.ReadFile("files/file1.txt")
 
 	if FErr != nil {

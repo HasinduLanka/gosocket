@@ -8,6 +8,8 @@ import (
 
 func FileWrite_Handler(w http.ResponseWriter, r *http.Request) {
 
+	os.MkdirAll("files", 0777)
+
 	FWErr := os.WriteFile("files/file1.html", []byte("<html><body>Hello World <p> Time is : "+string(time.Now().String())+" </p> </body></html>"), os.ModePerm)
 
 	if FWErr != nil {
