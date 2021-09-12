@@ -34,6 +34,14 @@
             console.log("Socket Error: ", error);
         };
 
+
+      const source = new EventSource(document.location.origin+"/sse");
+      source.onmessage = (event) => {
+        console.log("SSE OnMessage : ");
+        console.log(event);
+        console.log(JSON.parse(event.data));
+      };
+
     </script>
   </body>
 </html>
