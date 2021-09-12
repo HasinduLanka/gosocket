@@ -10,7 +10,7 @@ func FileRead_Handler(w http.ResponseWriter, r *http.Request) {
 	FB, FErr := os.ReadFile("files/file1.html")
 
 	if FErr != nil {
-		w.Write([]byte("Error in reading file"))
+		w.Write([]byte("Error in reading file" + FErr.Error()))
 	} else {
 		w.Write(FB)
 	}
