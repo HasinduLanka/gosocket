@@ -42,7 +42,7 @@ func reader(conn *websocket.Conn) {
 }
 
 func homePage(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, path.Join("", "./"))
+	http.ServeFile(w, r, path.Join("", "./index.html"))
 }
 
 func wsEndpoint(w http.ResponseWriter, r *http.Request) {
@@ -69,7 +69,7 @@ func setupRoutes() {
 }
 
 func main() {
-	fmt.Println("Hello World")
+	fmt.Println("Hello Sockets!")
 	setupRoutes()
 	log.Fatal(http.ListenAndServe(":8463", nil))
 }
