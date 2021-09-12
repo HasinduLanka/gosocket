@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"io/fs"
 	"net/http"
 	"os"
 	"time"
@@ -8,7 +9,11 @@ import (
 
 func FileWrite_Handler(w http.ResponseWriter, r *http.Request) {
 
-	os.MkdirAll("files", 0777)
+	FDErr := os.MkdirAll("files", fs.ModeDir)
+
+	if FDErr != nil {
+		w.Write([]byte("Error in mkdir " + FDErr.Error()))
+	}
 
 	FWErr := os.WriteFile("files/file1.html", []byte("<html><body>Hello World <p> Time is : "+string(time.Now().String())+" </p> </body></html>"), os.ModePerm)
 
