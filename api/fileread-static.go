@@ -5,9 +5,9 @@ import (
 	"os"
 )
 
-func FileRead_Handler(w http.ResponseWriter, r *http.Request) {
+func FileReadSt_Handler(w http.ResponseWriter, r *http.Request) {
 
-	FB, FErr := os.ReadFile("files/file1.html")
+	FB, FErr := os.ReadFile("files/file1.txt")
 
 	if FErr != nil {
 		w.Write([]byte("Error in reading file"))
