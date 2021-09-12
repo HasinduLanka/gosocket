@@ -2,6 +2,12 @@
     "functions": {
       "api/filewrite.go": {
         "includeFiles": "files/**"
+      },
+      "api/fileread.go": {
+        "includeFiles": "files/**"
+      },
+      "api/fileread-static.go": {
+        "includeFiles": "files/**"
       }
     }
   }
