@@ -11,7 +11,7 @@
 
     <script>
         var host_protocol = (("https:" == document.location.protocol) ? "wss://" : "ws://");
-        let socket = new WebSocket(host_protocol + document.location.host + "/ws");
+        let socket = new WebSocket(host_protocol + document.location.host + "/api/ws");
         
         console.log("Attempting Connection...");
 
