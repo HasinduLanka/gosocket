@@ -1,10 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
-	"path"
 	"time"
 
 	"github.com/gorilla/websocket"
@@ -41,11 +39,7 @@ func reader(conn *websocket.Conn) {
 	}
 }
 
-func homePage(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, path.Join("", "./index.html"))
-}
-
-func wsEndpoint(w http.ResponseWriter, r *http.Request) {
+func Handler(w http.ResponseWriter, r *http.Request) {
 	// upgrade this connection to a WebSocket
 	// connection
 	ws, err := upgrader.Upgrade(w, r, nil)
@@ -61,15 +55,4 @@ func wsEndpoint(w http.ResponseWriter, r *http.Request) {
 	// listen indefinitely for new messages coming
 	// through on our WebSocket connection
 	reader(ws)
-}
-
-func setupRoutes() {
-	http.HandleFunc("/", homePage)
-	http.HandleFunc("/ws", wsEndpoint)
-}
-
-func main() {
-	fmt.Println("Hello Sockets!")
-	setupRoutes()
-	log.Fatal(http.ListenAndServe(":8463", nil))
 }
